@@ -17,6 +17,10 @@ return new class extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('dni')->unique(); // Nuevo campo DNI
+            $table->string('phone')->nullable(); // Nuevo campo Phone
+            $table->text('address')->nullable(); // Nuevo campo Address
+            $table->enum('type', ['admin', 'oper', 'client'])->default('client'); // Nuevo campo Type
             $table->rememberToken();
             $table->timestamps();
         });
